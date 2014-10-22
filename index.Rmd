@@ -43,21 +43,18 @@ qplot(BMI, Groups, geom = "bar", stat="identity", fill = Groups, xlab='BMI', yla
 ## Basal metabolism 
 The BMI calculator also measures the basal metabolism. 
 
-It is the energy requirements when you are resting and involves a lot of physiological processes such as breathing, digesting, heart beating, neuronal connexions making and so on. 
+It is the energy requirements when you are resting and involves a lot of physiological processes such as breathing, digesting, heart beating and so on. 
 
-The basal metabolism is calculated through the [Harris and Benedict equation] (http://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation).
+The basal metabolism is calculated through the [Harris and Benedict equation] (http://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation). For example, if you are a 45 years, 70 kg and 1.69 m female, your basal metabolism in calories per day is: 
+
+```{r}
+BasalMet <- 655.1 + 9.463 * 70 + 1.8 * 1.69 - 4.6756 * 45
+BasalMet
+```
 
 Although it is a way to approximate the basal metabolism, additional factors can affect it like physical activity levels or energy expended in thermogenesis. 
 
 This is the reason why basal metabolism is so difficult to estimate.
-
-```{r}
-Basal <- function(weight, height, age, gender){
-  if (gender == 1) {
-  BasalMet <- 66.4730 + 13.751 * weight + 5.0033 * height - 6.75 * age } else {
-  BasalMet <- 655.1 + 9.463 * weight + 1.8 * height - 4.6756 * age}
-  BasalMet}
-```
 
 --- .class #id
 
